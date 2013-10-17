@@ -5,7 +5,7 @@ import urllib2
 import time
 
 def load_json(subreddit):
-    req = urllib2.urlopen('http://www.reddit.com/r/' + subreddit + '.json')
+    req = urllib2.urlopen('http://www.reddit.com/r/' + subreddit + '.json?limit=1000')
     json_string = json.load(req)
     return json_string[u'data'][u'children']
 
@@ -25,3 +25,4 @@ def load_subreddit():
 
 
 urls = add_urls_to_list(load_subreddit())
+print urls
